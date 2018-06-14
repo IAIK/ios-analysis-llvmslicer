@@ -27,6 +27,7 @@ subdirectories =
  llvm-cov
  llvm-diff
  llvm-dis
+ llvm-andersen
  llvm-dwarfdump
  llvm-extract
  llvm-jitlistener
@@ -41,6 +42,7 @@ subdirectories =
  llvm-rtdyld
  llvm-size
  llvm-split
+ llvm-slicer
  opt
  verify-uselistorder
 

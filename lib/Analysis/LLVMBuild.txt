@@ -15,8 +15,12 @@
 ;
 ;===------------------------------------------------------------------------===;
 
+[common]
+subdirectories =
+ Andersen
+
 [component_0]
 type = Library
 name = Analysis
 parent = Libraries
-required_libraries = Core Support
+required_libraries = Core Support Object

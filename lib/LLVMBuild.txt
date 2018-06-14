@@ -38,6 +38,7 @@ subdirectories =
  TableGen
  Target
  Transforms
+ LLVMSlicer
 
 [component_0]
 type = Group

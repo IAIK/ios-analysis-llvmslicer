@@ -41,7 +41,10 @@ enum ActionType {
   PrintEnums,
   PrintSets,
   GenOptParserDefs,
-  GenCTags
+  GenCTags,
+  GenSliceExt,
+  GenPtsToExt,
+  GenModExt
 };
 
 namespace {
@@ -85,6 +88,12 @@ namespace {
                                "Generate option definitions"),
                     clEnumValN(GenCTags, "gen-ctags",
                                "Generate ctags-compatible index"),
+                    clEnumValN(GenSliceExt, "gen-slice-ext",
+                               "Generate slicing definitions for external functions"),
+                    clEnumValN(GenPtsToExt, "gen-ptsto-ext",
+                               "Generate points-to definitions for external functions"),
+                    clEnumValN(GenModExt, "gen-mod-ext",
+                               "Generate MOD definitions for external functions"),
                     clEnumValEnd));
 
   cl::opt<std::string>
@@ -141,6 +150,15 @@ bool LLVMTableGenMain(raw_ostream &OS, RecordKeeper &Records) {
   case GenOptParserDefs:
     EmitOptParser(Records, OS);
     break;
+  case GenSliceExt:
+      EmitSliceExt(Records, OS);
+    break;
+  case GenPtsToExt:
+      EmitPtsToExt(Records, OS);
+      break;
+  case GenModExt:
+      EmitMODExt(Records, OS);
+      break;
   case PrintEnums:
   {
     for (Record *Rec : Records.getAllDerivedDefinitions(Class))

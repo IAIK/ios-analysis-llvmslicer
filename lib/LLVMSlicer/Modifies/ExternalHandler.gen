@@ -1,0 +1,3570 @@
+#ifndef LLVM_EXTERNALMODHANDLER_H
+#define LLVM_EXTERNALMODHANDLER_H
+
+#include "llvm/Analysis/Andersen/DetectParametersPass.h"
+
+namespace llvm {
+
+namespace {
+int translateRegister(std::string RegName) {
+  if (RegName == "X0") 
+    return 5;
+  if (RegName == "X1") 
+    return 6;
+  if (RegName == "X2") 
+    return 7;
+  if (RegName == "X3") 
+    return 8;
+  if (RegName == "X4") 
+    return 9;
+  if (RegName == "X5") 
+    return 10;
+  if (RegName == "X6") 
+    return 11;
+  if (RegName == "X7") 
+    return 12;
+  llvm_unreachable("Unknown Register");
+}
+}
+void anonymous_1005(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "malloc"
+}
+
+void anonymous_1008(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSFileHandle fileHandleForReadingAtPath:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1019(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSFileHandle readDataOfLength:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1030(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UITextField text]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1036(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UITextView text]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1042(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UILabel text]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1048(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString stringByTrimmingCharactersInSet:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1057(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString stringByAppendingString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_106(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithContentsOfURL:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1069(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString componentsSeparatedByString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1081(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UIView initWithFrame:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1088(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UIViewController initWithNibName:bundle:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1095(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSNull null]"
+}
+
+void anonymous_1098(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[UIApplication sharedApplication]"
+}
+
+void anonymous_1101(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSUserDefaults objectForKey:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1108(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSUserDefaults setObject:forKey:]"
+}
+
+void anonymous_1115(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSKeyedArchiver archivedDataWithRootObject:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1121(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UIAlertView textFieldAtIndex:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_1127(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary objectForKey:]"
+}
+
+void anonymous_1131(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary setObject:forKey:]"
+}
+
+void anonymous_1138(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary valueForKey:]"
+}
+
+void anonymous_1142(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary setValue:forKey:]"
+}
+
+void anonymous_119(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithData:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_132(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData mutableCopy]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_145(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData isEqual:]"
+}
+
+void anonymous_148(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData writeToFile:options:error:]"
+}
+
+void anonymous_149(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_162(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData data]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_17(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_autoreleaseReturnValue"
+}
+
+void anonymous_170(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithBytesNoCopy:length:freeWhenDone:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_18(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_autorelease"
+}
+
+void anonymous_183(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithContentsOfFile:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_19(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_retainAutoreleasedReturnValue"
+}
+
+void anonymous_196(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithContentsOfFile:options:error:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_20(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_retainAutoreleaseReturnValue"
+}
+
+void anonymous_209(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithContentsOfURL:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_21(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_retainAutorelease"
+}
+
+void anonymous_22(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject retain]"
+}
+
+void anonymous_222(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithData:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_23(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject autorelease]"
+}
+
+void anonymous_235(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithCapacity:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_24(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_release"
+}
+
+void anonymous_243(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableData dataWithLength:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_25(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject release]"
+}
+
+void anonymous_251(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableData mutableBytes]"
+}
+
+void anonymous_26(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject dealloc]"
+}
+
+void anonymous_260(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString string]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_266(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_27(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject respondsToSelector:]"
+}
+
+void anonymous_277(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithCString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_288(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithCharacters:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_299(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString initWithData:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_311(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString initWithString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_323(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString getCString:maxLength:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_33(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_332(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString getBytes:maxLength:usedLength:encoding:options:range:remainingRange:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_341(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString cStringUsingEncoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_350(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString lowercaseString]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_361(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableString stringWithString:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_372(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableString stringWithCharacters:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_383(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithContentsOfFile:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_389(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithObject:forKey:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_398(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithObjectsAndKeys:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_404(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionary]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_410(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithDictionary:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_416(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithObjects:forKeys:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_422(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSDictionary dictionaryWithObjects:forKeys:count:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_428(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary initWithObjectsAndKeys:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_435(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary objectForKey:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_442(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary valueForKey:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_449(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableDictionary dictionaryWithContentsOfFile:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_455(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableDictionary dictionaryWithObject:forKey:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_46(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithBytesNoCopy:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_464(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableDictionary dictionaryWithObjectsAndKeys:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_470(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableDictionary dictionary]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_476(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableDictionary dictionaryWithDictionary:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_482(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSJSONSerialization dataWithJSONObject:options:error:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_488(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData bytes]"
+}
+
+void anonymous_500(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData getBytes:range:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_517(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData getBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_537(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData subdataWithRange:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_550(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableData setLength:]"
+}
+
+void anonymous_553(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableData appendData:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_565(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableData appendBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_577(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData length]"
+}
+
+void anonymous_580(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString dataUsingEncoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_59(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData data]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_593(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "memcpy"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_604(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCKeyDerivationPBKDF"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X7"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_621(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCCalibratePBKDF"
+}
+
+void anonymous_626(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCCryptorCreate"
+}
+
+void anonymous_627(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCCryptorCreateWithMode"
+}
+
+void anonymous_631(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCCrypt"
+}
+
+void anonymous_632(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CCCryptorUpdate"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X3"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_645(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_setProperty_nonatomic_copy"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X3"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_654(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_getProperty"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_668(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_setProperty_nonatomic"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X3"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_FRC_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_67(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithBytesNoCopy:length:freeWhenDone:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_680(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_setProperty_atomic"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X3"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_FRC_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_692(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_setProperty"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X3"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_FRC_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_704(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_loadWeakRetained"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_718(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString UTF8String]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_731(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSArray arrayWithArray:]"
+}
+
+void anonymous_734(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSArray arrayWithObject:]"
+}
+
+void anonymous_735(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSArray arrayWithObjects:]"
+}
+
+void anonymous_736(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSArray array]"
+}
+
+void anonymous_737(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSArray objectAtIndex:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_747(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSArray objectAtIndexedSubscript:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_757(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableString stringWithCapacity:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_763(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableString stringWithUTF8String:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_764(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSMutableString string]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_765(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithCString:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_771(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithContentsOfFile:encoding:error:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_772(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithFormat:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_773(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithUTF8String:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_774(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSString stringWithCString:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_781(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSObject init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_788(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableData init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_789(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_790(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithBase64EncodedData:options:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_791(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithContentsOfFile:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_792(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithData:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_793(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_794(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithBase64EncodedString:options:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_795(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString initWithBytes:length:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_796(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString initWithData:encoding:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_797(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString initWithFormat:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_798(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableDictionary init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_799(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSDictionary init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_8(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_retain"
+}
+
+void anonymous_80(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithContentsOfFile:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_800(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[UITableViewController init]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_801(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithBytes:length:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_810(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData initWithBase64EncodedString:options:]"
+}
+
+void anonymous_816(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString copy]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_825(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSMutableString copy]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_834(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSData copy]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_843(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CC_SHA256_Init"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_847(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CC_SHA256_Update"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_857(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CC_SHA256_Final"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_864(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "arc4random"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_870(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "SecRandomCopyBytes"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_878(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_storeStrong"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_FRC_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_888(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_storeWeak"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_FRC_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_898(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_getClass"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_907(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "bzero"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_915(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSBundle bundleWithPath:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_923(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSBundle bundleForClass:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_924(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSBundle mainBundle]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_925(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "NSLog"
+}
+
+void anonymous_926(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "__stack_chk_fail"
+}
+
+void anonymous_927(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_enumerationMutation"
+}
+
+void anonymous_928(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_terminate"
+}
+
+void anonymous_929(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_sync_exit"
+}
+
+void anonymous_93(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSData dataWithContentsOfFile:options:error:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_930(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_sync_enter"
+}
+
+void anonymous_931(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_exception_rethrow"
+}
+
+void anonymous_932(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_exception_throw"
+}
+
+void anonymous_933(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_destroyWeak"
+}
+
+void anonymous_934(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_end_catch"
+}
+
+void anonymous_935(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "objc_begin_catch"
+}
+
+void anonymous_936(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "_Znam"
+}
+
+void anonymous_941(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "_Znwm"
+}
+
+void anonymous_946(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "_ZnwmRKSt9nothrow_t"
+}
+
+void anonymous_951(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CC_MD5"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_958(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "CC_SHA256"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X2"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_965(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "read"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesBeforeCall(translateRegister("X1"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_971(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "open"
+}
+
+void anonymous_977(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "+[NSNumber numberWithInt:]"
+{ //Def
+DetectParametersPass::UserSet_t DefRegs;
+{
+DetectParametersPass::UserSet_t Src = DetectParametersPass::getRegisterValuesAfterCall(translateRegister("X0"), (Instruction*)CallInst);
+for (auto S : Src) {
+  const ptr::PointsToSets::PointsToSet &PtsTo = ptr::getPointsToSet(S, PS);//get points to sets
+  for (auto &P : PtsTo) {
+    assert(isa<const User>(P.first));
+    DefRegs.insert((User*)P.first);
+  }
+}
+}
+  for (auto DefRegs_it = DefRegs.begin(); DefRegs_it != DefRegs.end(); ++DefRegs_it) {
+    lock.lock();
+    commands.push_back(llvm::mods::ProgramStructure::Command(llvm::mods::CMD_DEF, *DefRegs_it));
+    lock.unlock();
+  }
+} //End Def
+}
+
+void anonymous_987(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSNumber integerValue]"
+}
+
+void anonymous_993(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString intValue]"
+}
+
+void anonymous_999(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+//Handle "-[NSString integerValue]"
+}
+
+bool handleCall(llvm::Instruction *CallInst, const ptr::PointsToSets &PS, const std::string &FName, llvm::mods::ProgramStructure::Commands &commands, std::mutex &lock) {
+  if (FName == "+[NSArray arrayWithArray:]") {
+    anonymous_731(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSArray arrayWithObject:]") {
+    anonymous_734(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSArray arrayWithObjects:]") {
+    anonymous_735(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSArray array]") {
+    anonymous_736(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSBundle bundleForClass:]") {
+    anonymous_923(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSBundle bundleWithPath:]") {
+    anonymous_915(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSBundle mainBundle]") {
+    anonymous_924(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithBytes:length:]") {
+    anonymous_33(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithBytesNoCopy:length:]") {
+    anonymous_46(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithBytesNoCopy:length:freeWhenDone:]") {
+    anonymous_67(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithContentsOfFile:]") {
+    anonymous_80(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithContentsOfFile:options:error:]") {
+    anonymous_93(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithContentsOfURL:]") {
+    anonymous_106(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData dataWithData:]") {
+    anonymous_119(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSData data]") {
+    anonymous_59(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithContentsOfFile:]") {
+    anonymous_383(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithDictionary:]") {
+    anonymous_410(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithObject:forKey:]") {
+    anonymous_389(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithObjects:forKeys:]") {
+    anonymous_416(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithObjects:forKeys:count:]") {
+    anonymous_422(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionaryWithObjectsAndKeys:]") {
+    anonymous_398(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSDictionary dictionary]") {
+    anonymous_404(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSFileHandle fileHandleForReadingAtPath:]") {
+    anonymous_1008(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSJSONSerialization dataWithJSONObject:options:error:]") {
+    anonymous_482(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSKeyedArchiver archivedDataWithRootObject:]") {
+    anonymous_1115(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithBytes:length:]") {
+    anonymous_149(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithBytesNoCopy:length:freeWhenDone:]") {
+    anonymous_170(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithCapacity:]") {
+    anonymous_235(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithContentsOfFile:]") {
+    anonymous_183(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithContentsOfFile:options:error:]") {
+    anonymous_196(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithContentsOfURL:]") {
+    anonymous_209(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithData:]") {
+    anonymous_222(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData dataWithLength:]") {
+    anonymous_243(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableData data]") {
+    anonymous_162(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableDictionary dictionaryWithContentsOfFile:]") {
+    anonymous_449(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableDictionary dictionaryWithDictionary:]") {
+    anonymous_476(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableDictionary dictionaryWithObject:forKey:]") {
+    anonymous_455(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableDictionary dictionaryWithObjectsAndKeys:]") {
+    anonymous_464(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableDictionary dictionary]") {
+    anonymous_470(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableString stringWithCapacity:]") {
+    anonymous_757(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableString stringWithCharacters:length:]") {
+    anonymous_372(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableString stringWithString:]") {
+    anonymous_361(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableString stringWithUTF8String:]") {
+    anonymous_763(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSMutableString string]") {
+    anonymous_764(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSNull null]") {
+    anonymous_1095(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSNumber numberWithInt:]") {
+    anonymous_977(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithCString:]") {
+    anonymous_277(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithCString:encoding:]") {
+    anonymous_765(CallInst, PS, commands, lock);
+    anonymous_774(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithCharacters:length:]") {
+    anonymous_288(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithContentsOfFile:encoding:error:]") {
+    anonymous_771(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithFormat:]") {
+    anonymous_772(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithString:]") {
+    anonymous_266(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString stringWithUTF8String:]") {
+    anonymous_773(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[NSString string]") {
+    anonymous_260(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "+[UIApplication sharedApplication]") {
+    anonymous_1098(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSArray objectAtIndex:]") {
+    anonymous_737(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSArray objectAtIndexedSubscript:]") {
+    anonymous_747(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData bytes]") {
+    anonymous_488(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData copy]") {
+    anonymous_834(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData getBytes:length:]") {
+    anonymous_517(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData getBytes:range:]") {
+    anonymous_500(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData initWithBase64EncodedData:options:]") {
+    anonymous_790(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData initWithBase64EncodedString:options:]") {
+    anonymous_794(CallInst, PS, commands, lock);
+    anonymous_810(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData initWithBytes:length:]") {
+    anonymous_789(CallInst, PS, commands, lock);
+    anonymous_801(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData initWithContentsOfFile:]") {
+    anonymous_791(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData initWithData:]") {
+    anonymous_792(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData init]") {
+    anonymous_793(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData isEqual:]") {
+    anonymous_145(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData length]") {
+    anonymous_577(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData mutableCopy]") {
+    anonymous_132(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData subdataWithRange:]") {
+    anonymous_537(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSData writeToFile:options:error:]") {
+    anonymous_148(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary initWithObjectsAndKeys:]") {
+    anonymous_428(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary init]") {
+    anonymous_799(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary objectForKey:]") {
+    anonymous_1127(CallInst, PS, commands, lock);
+    anonymous_435(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary setObject:forKey:]") {
+    anonymous_1131(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary setValue:forKey:]") {
+    anonymous_1142(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSDictionary valueForKey:]") {
+    anonymous_1138(CallInst, PS, commands, lock);
+    anonymous_442(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSFileHandle readDataOfLength:]") {
+    anonymous_1019(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableData appendBytes:length:]") {
+    anonymous_565(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableData appendData:]") {
+    anonymous_553(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableData init]") {
+    anonymous_788(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableData mutableBytes]") {
+    anonymous_251(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableData setLength:]") {
+    anonymous_550(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableDictionary init]") {
+    anonymous_798(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSMutableString copy]") {
+    anonymous_825(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSNumber integerValue]") {
+    anonymous_987(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject autorelease]") {
+    anonymous_23(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject dealloc]") {
+    anonymous_26(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject init]") {
+    anonymous_781(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject release]") {
+    anonymous_25(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject respondsToSelector:]") {
+    anonymous_27(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSObject retain]") {
+    anonymous_22(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString UTF8String]") {
+    anonymous_718(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString cStringUsingEncoding:]") {
+    anonymous_341(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString componentsSeparatedByString:]") {
+    anonymous_1069(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString copy]") {
+    anonymous_816(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString dataUsingEncoding:]") {
+    anonymous_580(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString getBytes:maxLength:usedLength:encoding:options:range:remainingRange:]") {
+    anonymous_332(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString getCString:maxLength:encoding:]") {
+    anonymous_323(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString initWithBytes:length:encoding:]") {
+    anonymous_795(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString initWithData:encoding:]") {
+    anonymous_299(CallInst, PS, commands, lock);
+    anonymous_796(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString initWithFormat:]") {
+    anonymous_797(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString initWithString:]") {
+    anonymous_311(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString intValue]") {
+    anonymous_993(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString integerValue]") {
+    anonymous_999(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString lowercaseString]") {
+    anonymous_350(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString stringByAppendingString:]") {
+    anonymous_1057(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSString stringByTrimmingCharactersInSet:]") {
+    anonymous_1048(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSUserDefaults objectForKey:]") {
+    anonymous_1101(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[NSUserDefaults setObject:forKey:]") {
+    anonymous_1108(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UIAlertView textFieldAtIndex:]") {
+    anonymous_1121(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UILabel text]") {
+    anonymous_1042(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UITableViewController init]") {
+    anonymous_800(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UITextField text]") {
+    anonymous_1030(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UITextView text]") {
+    anonymous_1036(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UIView initWithFrame:]") {
+    anonymous_1081(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "-[UIViewController initWithNibName:bundle:]") {
+    anonymous_1088(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCCalibratePBKDF") {
+    anonymous_621(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCCrypt") {
+    anonymous_631(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCCryptorCreate") {
+    anonymous_626(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCCryptorCreateWithMode") {
+    anonymous_627(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCCryptorUpdate") {
+    anonymous_632(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CCKeyDerivationPBKDF") {
+    anonymous_604(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CC_MD5") {
+    anonymous_951(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CC_SHA256") {
+    anonymous_958(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CC_SHA256_Final") {
+    anonymous_857(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CC_SHA256_Init") {
+    anonymous_843(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "CC_SHA256_Update") {
+    anonymous_847(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "NSLog") {
+    anonymous_925(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "SecRandomCopyBytes") {
+    anonymous_870(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "_Znam") {
+    anonymous_936(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "_Znwm") {
+    anonymous_941(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "_ZnwmRKSt9nothrow_t") {
+    anonymous_946(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "__stack_chk_fail") {
+    anonymous_926(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "arc4random") {
+    anonymous_864(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "bzero") {
+    anonymous_907(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "malloc") {
+    anonymous_1005(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "memcpy") {
+    anonymous_593(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_autorelease") {
+    anonymous_18(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_autoreleaseReturnValue") {
+    anonymous_17(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_begin_catch") {
+    anonymous_935(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_destroyWeak") {
+    anonymous_933(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_end_catch") {
+    anonymous_934(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_enumerationMutation") {
+    anonymous_927(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_exception_rethrow") {
+    anonymous_931(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_exception_throw") {
+    anonymous_932(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_getClass") {
+    anonymous_898(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_getProperty") {
+    anonymous_654(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_loadWeakRetained") {
+    anonymous_704(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_release") {
+    anonymous_24(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_retain") {
+    anonymous_8(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_retainAutorelease") {
+    anonymous_21(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_retainAutoreleaseReturnValue") {
+    anonymous_20(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_retainAutoreleasedReturnValue") {
+    anonymous_19(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_setProperty") {
+    anonymous_692(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_setProperty_atomic") {
+    anonymous_680(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_setProperty_nonatomic") {
+    anonymous_668(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_setProperty_nonatomic_copy") {
+    anonymous_645(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_storeStrong") {
+    anonymous_878(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_storeWeak") {
+    anonymous_888(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_sync_enter") {
+    anonymous_930(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_sync_exit") {
+    anonymous_929(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "objc_terminate") {
+    anonymous_928(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "open") {
+    anonymous_971(CallInst, PS, commands, lock);
+    return true;
+  }
+  if (FName == "read") {
+    anonymous_965(CallInst, PS, commands, lock);
+    return true;
+  }
+  return false;
+}
+
+}
+#endif

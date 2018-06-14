@@ -70,8 +70,26 @@ add_llvm_library(LLVMAnalysis
   ValueTracking.cpp
   VectorUtils.cpp
 
+  Andersen/Andersen.cpp
+  Andersen/AndersenAA.cpp
+  Andersen/ConstraintCollect.cpp
+  Andersen/ConstraintOptimize.cpp
+  Andersen/ConstraintSolving.cpp
+  Andersen/ExternalLibrary.cpp
+  Andersen/NodeFactory.cpp
+  Andersen/StackAccessPass.cpp
+  Andersen/DetectParametersPass.cpp
+  Andersen/ObjectiveCBinary.cpp
+  Andersen/ObjectiveCClassInfo.cpp
+  Andersen/ObjCCallHandler.cpp
+  Andersen/CallHandler/ObjCRuntimeCallHandler.cpp
+  Andersen/NonVolatileRegistersPass.cpp
+  Andersen/SimpleCallGraph.cpp
+
   ADDITIONAL_HEADER_DIRS
   ${LLVM_MAIN_INCLUDE_DIR}/llvm/Analysis
   )
 
-add_dependencies(LLVMAnalysis intrinsics_gen)
+add_subdirectory(Andersen)
+
+add_dependencies(LLVMAnalysis intrinsics_gen Object)

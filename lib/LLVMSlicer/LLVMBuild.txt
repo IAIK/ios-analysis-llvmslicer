@@ -1,0 +1,26 @@
+;===- ./lib/MC/LLVMBuild.txt -----------------------------------*- Conf -*--===;
+;
+;                     The LLVM Compiler Infrastructure
+;
+; This file is distributed under the University of Illinois Open Source
+; License. See LICENSE.TXT for details.
+;
+;===------------------------------------------------------------------------===;
+;
+; This is an LLVMBuild description file for the components in this subdirectory.
+;
+; For more information on the LLVMBuild system, please see:
+;
+;   http://llvm.org/docs/LLVMBuild.html
+;
+;===------------------------------------------------------------------------===;
+
+[common]
+;subdirectories = Callgraph Languages Modifies PointsTo Slicing
+
+[component_0]
+;LOADABLE_MODULE = 1
+type = Library
+name = Slicer
+parent = Libraries
+required_libraries = Object Support Analysis Core TransformUtils
